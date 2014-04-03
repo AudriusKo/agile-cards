@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>Files available</h1>
+<ul>
+{% for file in files %}
+    <li><a href="/cards/{{ file }}">{{ file }}</a></li>
+{% else %}
+    <li>No files available in app/data/</li>
+{% endfor %}
+</ul>
+
+</body>
+</html>

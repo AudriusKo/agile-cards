@@ -1,0 +1,49 @@
+#cards {
+    width: 900px;
+}
+
+.card {
+    width: 428px;
+    height: 190px;
+    padding: 10px;
+    border: 1px solid #000000;
+    page-break-inside: avoid;
+    float: left;
+    overflow: hidden;
+}
+
+h2 {
+    display: block;
+    margin: 9px 0;
+    font-weight: 700;
+    font-size: 21px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.assignee {
+    float: left;
+}
+
+.estimate {
+    float: right;
+    font-weight: 700;
+}
+
+.summary {
+    min-height: 70px;
+}
+
+.infoline:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    padding: 5px 0;
+}
+
+.priority {
+    padding: 3px 0;
+}
