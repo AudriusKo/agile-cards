@@ -57,33 +57,36 @@ $app->get(
 
         if ($xml instanceof SimpleXMLElement) {
             foreach ($xml->channel->item as $card) {
+                switch ($card->type['id']) {
+                    case 1:
+                    case 9:
+                        $icon = 'bug';
+                        break;
+                    case 19:
+                        $icon = 'folder';
+                        break;
+                    default:
+                        $icon = 'wrench';
+                    }
+
                 $id = (string) $card->key;
                 $cards[$id] = [
-                    'id'         => $id,
-                    'parent'     => '',
-                    'title'      => (string) $card->title,
-                    'type'       => (string) $card->type,
-                    'summary'    => (string) $card->summary,
-                    'priority'   => (string) $card->priority,
-                    'status'     => (string) $card->status,
-                    'resolution' => (string) $card->resolution,
-                    'assignee'   => (string) $card->assignee,
-                    'reporter'   => (string) $card->reporter,
-                    'estimate'   => (string) $card->timeestimate,
-                    'timespent'  => (string) $card->aggregatetimespent,
-                ];
-            }
+                    'id'          => $id,
+                    'parent'      => (string)$card->parent,
+                    'key'         => (string)$card->key,
+                    'type'        => (string)$card->type,
+                    'summary'     => (string)$card->summary,
+                    'description' => (string)$card->description,
+                    'priority'    => (string)$card->priority,
+                    'status'      => (string)$card->status,
+                    'resolution'  => (string)$card->resolution,
+                    'assignee'    => (string)$card->assignee,
+                    'reporter'    => (string)$card->reporter,
+                    'estimate'    => (string)$card->timeestimate,
+                    'timespent'   => (string)$card->aggregatetimespent,
+                    'icon'        => $icon
 
-            foreach ($xml->channel->item as $card) {
-                $id = (string) $card->key;
-                if ($card->subtasks->count()) {
-                    foreach ($card->subtasks->subtask as $subtask) {
-                        $subtaskId = (string) $subtask;
-                        if (isset($cards[$subtaskId])) {
-                            $cards[$subtaskId]['parent'] = $id;
-                        }
-                    }
-                }
+                ];
             }
         }
 

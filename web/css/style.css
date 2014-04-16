@@ -1,26 +1,42 @@
 #cards {
     width: 900px;
+    font-family: 'HelveticaNeue-Light', sans-serif;
 }
 
 .card {
     width: 428px;
-    height: 190px;
-    padding: 10px;
+    height: 140px;
+    padding: 20px 10px 10px 10px;
     border: 1px solid #000000;
     page-break-inside: avoid;
     float: left;
     overflow: hidden;
+    margin-left: -1px;
+    margin-top: -1px;
 }
-
+.icon {
+    float: left !important;
+    width: 40px;
+    font-size: 40px;
+    margin-right: 5px;
+}
+.title {
+    float: left;
+    width: 383px;
+}
 h2 {
     display: block;
     margin: 9px 0;
-    font-weight: 700;
-    font-size: 21px;
+    font-weight: normal;
+    font-size: 24px;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+h3 {
+    margin: 0;
+    font-size: 15px;
 }
 
 .assignee {
@@ -33,17 +49,15 @@ h2 {
 }
 
 .summary {
+    padding: 10px 0 0 43px;
     min-height: 70px;
+    overflow: hidden;
 }
 
-.infoline:after {
-    content: " ";
-    display: block;
-    height: 0;
-    clear: both;
-    padding: 5px 0;
-}
 
 .priority {
     padding: 3px 0;
+}
+.darken {
+    background: #eeeeee;
 }

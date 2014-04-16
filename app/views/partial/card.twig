@@ -1,9 +1,9 @@
-<div class="card">
-    <h2>{% if card.parent|length > 0 %}[{{ card.parent }}]: {% endif %}{{ card.title }}</h2>
-    <div class="type"><b>Type:</b> {{ card.type }}</div>
-    <div class="infoline">
-        <div class="assignee"><b>Assignee:</b> {% if card.assignee != 'Unassigned' %}{{ card.assignee }}{% endif %}</div>
-        <div class="estimate">{{ card.estimate }}</div>
+<div class="card{% if card.icon == 'folder' %} darken{% endif %}">
+    <div class="header">
+        <i class="icon fa fa-{{ card.icon }}"></i>
+        <div class="title">
+            <h3>{% if card.parent|length > 0 %}{{ card.parent }} : {% endif %}{{ card.key }}</h3>
+            <h2>{{ card.summary }}</h2>
+        </div>
     </div>
-    <div class="summary"><b>Summary:</b> {{ card.summary }}</div>
 </div>
